@@ -1,0 +1,9 @@
+po kliknieciu w kategorie za pomoca js pokaza sie rzeczy nizej 
+- Projets
+- about me
+- courses
+- experience in IT
+
+dodac w html przycisk do zmieniania motywu na ciemny (js)
+dodac forumalrz ladny konktaktowy (pomoc js - ewentualna)
+
