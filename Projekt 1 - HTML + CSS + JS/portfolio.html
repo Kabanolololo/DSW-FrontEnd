@@ -13,8 +13,9 @@
             <ul>
                 <li><a href="#welcome-section">Welcome</a></li>
                 <li><a href="#categories">Categories</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Contact me</a></li>
                 <li><a href="#profile-link">Profile</a></li>
+                <li id="moon">🌙</li>
             </ul>
         </nav>
     </header>
@@ -25,43 +26,75 @@
     </section>
 
     <section id="categories">
-        <div class="category">
+        <div class="category" id="projects-cat">
             <div class="category-image" style="background-image:url(categories/1.jfif);">
                 <div class="category-overlay">
-                    <p>IT Project</p>
+                    <p>IT Projects</p>
                 </div>
             </div>
         </div>
-        <div class="category">
+        <div class="category" id="about-me">
             <div class="category-image" style="background-image: url(categories/2.jfif);">
                 <div class="category-overlay">
-                    <p>HTML websites</p>
+                    <p>About me</p>
                 </div>
             </div>
         </div>
-        <div class="category">
+        <div class="category" id="courses">
             <div class="category-image" style="background-image: url(categories/3.png);">
                 <div class="category-overlay">
-                    <p>Tips and tricks</p>
+                    <p>Courses</p>
                 </div>
             </div>
         </div>
-        <div class="category">
+        <div class="category" id="exp">
             <div class="category-image" style="background-image: url(categories/4.jfif);">
                 <div class="category-overlay">
-                    <p>Our company</p>
+                    <p>Experience in IT</p>
                 </div>
             </div>
         </div>
     </section>
-
+    <div class="block" id="a">
+        <h2>Lorem ipsum 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse justo ante, gravida at semper vel, posuere pulvinar est. Nam sodales ultricies nibh vel finibus. Maecenas eu odio dui. Integer malesuada odio at velit facilisis fringilla. Maecenas justo orci, fermentum vel tortor vel, pretium tempor orci. Nullam tempus est egestas sapien ornare laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec vitae nulla ipsum.</p>
+    </div>
+    <div class="block" id="b">
+        <h2>Lorem ipsum 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse justo ante, gravida at semper vel, posuere pulvinar est. Nam sodales ultricies nibh vel finibus. Maecenas eu odio dui. Integer malesuada odio at velit facilisis fringilla. Maecenas justo orci, fermentum vel tortor vel, pretium tempor orci. Nullam tempus est egestas sapien ornare laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec vitae nulla ipsum.</p>
+    </div>
+    <div class="block" id="c">
+        <h2>Lorem ipsum 3</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse justo ante, gravida at semper vel, posuere pulvinar est. Nam sodales ultricies nibh vel finibus. Maecenas eu odio dui. Integer malesuada odio at velit facilisis fringilla. Maecenas justo orci, fermentum vel tortor vel, pretium tempor orci. Nullam tempus est egestas sapien ornare laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec vitae nulla ipsum.</p>
+    </div>
+    <div class="block" id="d">
+        <h2>Lorem ipsum 4</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse justo ante, gravida at semper vel, posuere pulvinar est. Nam sodales ultricies nibh vel finibus. Maecenas eu odio dui. Integer malesuada odio at velit facilisis fringilla. Maecenas justo orci, fermentum vel tortor vel, pretium tempor orci. Nullam tempus est egestas sapien ornare laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec vitae nulla ipsum.</p>
+    </div>
     <section id="projects">
         <div class="project-tile">
-            <h2>Responsive Web Course</h2>
-            <p>This course contains HTML and CCSS</p>
-            <a href="https://kabanolololo.github.io/Kursy-freeCodeCamp/" target="_blank">Click Here to get started</a>
+            <h2>Contact me</h2>
+            <p>This course contains HTML and CSS</p>
+            <form action="#" method="post">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <div>
+                    <button type="submit">Send</button>
+                </div>
+            </form>
         </div>
     </section>
+    
 
     <footer>
         <div class="social-icons">
@@ -72,6 +105,6 @@
         <a id="profile-link" href="https://github.com/Kabanolololo" target="_blank">Visit My GitHub Profile</a>
         <p>&copy;Paweł Muszyński</p>
     </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
