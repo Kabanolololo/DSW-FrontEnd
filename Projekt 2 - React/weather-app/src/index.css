@@ -1,0 +1,28 @@
+
+body{
+  background-color: rgb(103, 150, 158);
+  font-family: "Poiret One", sans-serif;
+}
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 35%;
+}
+
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+}
