@@ -1,8 +1,39 @@
-# React + Vite
+Opis komponentów
+1. Komponent Left
+Komponent Left jest odpowiedzialny za wyświetlanie listy dostępnych miast oraz za interfejs umożliwiający użytkownikowi dodanie nowego miasta do listy.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Funkcje komponentu:
+Lista miast: Wyświetla listę istniejących miast z nazwą, aktualną temperaturą oraz ikoną reprezentującą warunki pogodowe.
+Dodawanie nowego miasta: Zawiera pole tekstowe oraz przycisk, które umożliwiają użytkownikowi wpisanie nazwy nowego miasta i dodanie go do listy z domyślnymi wartościami pogody.
+Komponent Left przekazuje wybrane miasto do głównego komponentu App, co pozwala na wyświetlenie szczegółowego widoku dla danego miasta. W tym celu użyto hooka useState, który przechowuje:
 
-Currently, two official plugins are available:
+listę miast
+aktualnie wpisany tekst w polu dodawania miasta.
+2. Komponent Block
+Komponent Block odpowiada za wyświetlanie szczegółowych informacji pogodowych dla aktualnie wybranego miasta.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Funkcje komponentu:
+Aktualne dane pogodowe: Wyświetla nazwę miasta, ikonę pogody, aktualną temperaturę oraz podstawowe informacje o zachmurzeniu, wietrze i opadach.
+Prognoza na kolejne dni: Zawiera podgląd na kilka kolejnych dni, gdzie dla każdego dnia wyświetlane są:
+dzień tygodnia,
+ikona pogody,
+przewidywana temperatura.
+Do wyświetlania prognozy na kolejne dni Block korzysta z reużywalnego komponentu WeatherDay, aby w sposób modułowy renderować prognozę dla każdego dnia.
+
+Komponent Block wykorzystuje hook useEffect do reakcji na zmiany danych wybranego miasta, co umożliwia uaktualnienie widoku przy każdej zmianie.
+
+3. Komponent CityList
+Komponent CityList jest pomocniczym komponentem, służącym do renderowania listy miast z podstawowymi informacjami pogodowymi.
+
+Funkcje komponentu:
+Wyświetlanie listy miast: Każde miasto na liście jest wyświetlane w osobnym elemencie, umożliwiającym kliknięcie i wybór go jako selectedCity.
+Reużywalność: Komponent można łatwo rozszerzać i modyfikować, aby dopasować wygląd i funkcjonalność listy miast do potrzeb aplikacji.
+Komponent CityList przyjmuje przez props funkcję onCitySelect, która umożliwia przekazanie informacji o kliknięciu w miasto do głównego komponentu App, aby wyświetlić szczegóły pogodowe.
+
+4. Komponent WeatherDay
+Komponent WeatherDay jest reużywalnym komponentem odpowiedzialnym za wyświetlanie prognozy pogody dla pojedynczego dnia.
+
+Funkcje komponentu:
+Prezentacja prognozy dla dnia: Wyświetla nazwę dnia tygodnia, przewidywaną temperaturę oraz ikonę reprezentującą przewidywane warunki pogodowe.
+Reużywalność: WeatherDay można używać w różnych częściach aplikacji, co zwiększa elastyczność projektu i ułatwia jego utrzymanie.
+Dane do WeatherDay przekazywane są przez props z komponentu nadrzędnego Block, co umożliwia dynamiczne wyświetlanie prognozy dla różnych dni.
