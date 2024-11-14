@@ -1,18 +1,31 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Left from './components/Left';
 import Block from './components/Block';
+import About from './components/About';
 import './App.css';
 
 const App = () => {
-  // useState - Tworzy stan dla wybranego miasta, który przekazujemy do komponentów jako "selectedCity"
-  // Gdy użytkownik kliknie na miasto w komponencie Left, ten stan jest aktualizowany i przekazywany do komponentu Block
   const [selectedCity, setSelectedCity] = useState(null);
 
   return (
-    <div className='app'>
-      <Left setSelectedCity={setSelectedCity} /> {/* Przekazanie funkcji ustawiającej wybrane miasto do komponentu Left */}
-      <Block selectedCity={selectedCity} /> {/* Przekazanie wybranego miasta do komponentu Block */}
-    </div>
+    <Router>
+      <div className='app'>
+        <nav>
+          <Link to="/city-details">City Details</Link>
+          <Link to="/about">About</Link>
+        </nav>
+        <Left setSelectedCity={setSelectedCity} />
+        <Routes>
+          <Route path="/" element={<Left setSelectedCity={setSelectedCity} />} />
+          <Route
+            path="/city-details"
+            element={<Block selectedCity={selectedCity} />}
+          />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

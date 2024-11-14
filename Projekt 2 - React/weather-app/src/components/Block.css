@@ -2,12 +2,15 @@
     background-color: #e0f7fa;
     border-radius: 12px;
     padding: 20px;
-    max-width: 300px;
+    width: 35%;
     margin: auto;
     font-family: Arial, sans-serif;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-  
+.paragraph{
+    margin-top: 50px;
+}
+
 .cityname {
     font-size: 1.5em;
     font-weight: bold;
@@ -20,7 +23,7 @@
     display: block;
     width: 80px;
     height: 80px;
-    margin: 0 auto 10px;
+    margin: 0 auto 0px;
 }
   
 .degrees {
@@ -39,7 +42,12 @@
 
 .day {
     text-align: center;
-    width: 50px;
+    width: 15%;
+}
+
+.day:hover{
+    background-color: #c6dcdf;
+    cursor: auto;
 }
 
 .little-picture {

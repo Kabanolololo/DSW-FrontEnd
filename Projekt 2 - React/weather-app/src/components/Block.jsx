@@ -1,30 +1,16 @@
 import React, { useEffect } from 'react';
 import './Block.css';
-import sun_icon from '../assets/sun.svg';
-import moon_icon from '../assets/moon.svg';
-import snow_icon from '../assets/snow.svg';
-import rain_icon from '../assets/rain.svg';
-import thunder_icon from '../assets/thunder.svg';
-
-const weatherIcons = {
-  sunny: sun_icon,
-  moon: moon_icon,
-  snow: snow_icon,
-  rain: rain_icon,
-  thunder: thunder_icon,
-};
+import weatherIcons from './WeatherIcons';
 
 const Block = ({ selectedCity }) => {
-  // useEffect - Używamy efektu, aby wykonać akcję po każdej zmianie "selectedCity"
-  // Dzięki temu możemy np. śledzić zmiany wybranego miasta
   useEffect(() => {
     if (selectedCity) {
       console.log(`Ładowanie danych pogodowych dla miasta: ${selectedCity.name}`);
     }
-  }, [selectedCity]); // Efekt wywołuje się tylko, gdy "selectedCity" się zmienia
+  }, [selectedCity]);
 
   if (!selectedCity) {
-    return <p>Please select a city to see the weather.</p>;
+    return <p className='paragraph'>Please select a city to see the weather.</p>;
   }
 
   return (
@@ -50,7 +36,6 @@ const Block = ({ selectedCity }) => {
           </div>
         ))}
       </div>
-
       <div className='more-info'>
         <div className='per-clouds'>
           <p className='info'>Overcast:</p>

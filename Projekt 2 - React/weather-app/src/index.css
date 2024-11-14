@@ -1,22 +1,26 @@
-
-body{
+body {
   background-color: rgb(103, 150, 158);
   font-family: "Poiret One", sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
 .app {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .left {
-  position: absolute;
+  position: fixed;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 100%;
+  top: 50px;
+  bottom: 0;
   width: 35%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 10;
 }
 
 .block {
@@ -25,4 +29,64 @@ body{
   align-items: center;
   width: 80%;
   max-width: 1200px;
+  margin: 0 auto;
+  flex-grow: 1;
+  padding-top: 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: #e0f7fa;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: #388e3c;
+  font-size: 1.1em;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #d2e8eb;
+}
+
+nav a.active {
+  background-color: #d2e8eb;
+}
+
+.left a {
+  display: block;
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+  padding: 10px;
+  margin: 5px 0;
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 5px;
+}
+
+.left a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #333;
+}
+
+.left a.active {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+}
+
+.left .links-container {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
 }

@@ -1,36 +1,34 @@
-import React from 'react';
-import sun_icon from '../assets/sun.svg';
-import moon_icon from '../assets/moon.svg';
-import snow_icon from '../assets/snow.svg';
-import rain_icon from '../assets/rain.svg';
-import thunder_icon from '../assets/thunder.svg';
+const citiesData = [
+  {
+    name: 'Wieluń',
+    temp: 15,
+    weather: 'sunny',
+    forecast: [
+      { day: 'Mon', temp: 16, weather: 'sunny' },
+      { day: 'Tue', temp: 14, weather: 'rain' },
+      { day: 'Wed', temp: 15, weather: 'snow' },
+      { day: 'Thu', temp: 17, weather: 'thunder' },
+      { day: 'Fri', temp: 18, weather: 'sunny' },
+    ],
+    overcast: '20%',
+    wind: { direction: 'W', speed: '10 m/s' },
+    rain: { chance: '30%', amount: '5 mm/m²' },
+  },
+  {
+    name: 'Warszawa',
+    temp: 12,
+    weather: 'rain',
+    forecast: [
+      { day: 'Mon', temp: 13, weather: 'rain' },
+      { day: 'Tue', temp: 12, weather: 'thunder' },
+      { day: 'Wed', temp: 10, weather: 'snow' },
+      { day: 'Thu', temp: 14, weather: 'moon' },
+      { day: 'Fri', temp: 13, weather: 'rain' },
+    ],
+    overcast: '50%',
+    wind: { direction: 'E', speed: '12 m/s' },
+    rain: { chance: '60%', amount: '10 mm/m²' },
+  },
+];
 
-const weatherIcons = {
-  sunny: sun_icon,
-  moon: moon_icon,
-  snow: snow_icon,
-  rain: rain_icon,
-  thunder: thunder_icon,
-};
-
-const CityList = ({ cities, onCityClick }) => (
-  <div>
-    {cities.map((city, index) => (
-      <div
-        className='city'
-        key={index}
-        onClick={() => onCityClick(city)}
-      >
-        <p>{city.name}</p>
-        <img
-          className='little-picture'
-          src={weatherIcons[city.weather] || sun_icon}
-          alt='weather icon'
-        />
-        <p>Temp: {city.temp}℃</p>
-      </div>
-    ))}
-  </div>
-);
-
-export default CityList;
+export default citiesData;

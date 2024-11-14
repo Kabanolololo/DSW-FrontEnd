@@ -23,17 +23,7 @@ Do wyświetlania prognozy na kolejne dni Block korzysta z reużywalnego komponen
 Komponent Block wykorzystuje hook useEffect do reakcji na zmiany danych wybranego miasta, co umożliwia uaktualnienie widoku przy każdej zmianie.
 
 3. Komponent CityList
-Komponent CityList jest pomocniczym komponentem, służącym do renderowania listy miast z podstawowymi informacjami pogodowymi.
+Komponent przechowuje dane o miastach
 
-Funkcje komponentu:
-Wyświetlanie listy miast: Każde miasto na liście jest wyświetlane w osobnym elemencie, umożliwiającym kliknięcie i wybór go jako selectedCity.
-Reużywalność: Komponent można łatwo rozszerzać i modyfikować, aby dopasować wygląd i funkcjonalność listy miast do potrzeb aplikacji.
-Komponent CityList przyjmuje przez props funkcję onCitySelect, która umożliwia przekazanie informacji o kliknięciu w miasto do głównego komponentu App, aby wyświetlić szczegóły pogodowe.
-
-4. Komponent WeatherDay
-Komponent WeatherDay jest reużywalnym komponentem odpowiedzialnym za wyświetlanie prognozy pogody dla pojedynczego dnia.
-
-Funkcje komponentu:
-Prezentacja prognozy dla dnia: Wyświetla nazwę dnia tygodnia, przewidywaną temperaturę oraz ikonę reprezentującą przewidywane warunki pogodowe.
-Reużywalność: WeatherDay można używać w różnych częściach aplikacji, co zwiększa elastyczność projektu i ułatwia jego utrzymanie.
-Dane do WeatherDay przekazywane są przez props z komponentu nadrzędnego Block, co umożliwia dynamiczne wyświetlanie prognozy dla różnych dni.
+4. Komponent WeatherIcons
+Komponent przechowuje dane o ikonach
