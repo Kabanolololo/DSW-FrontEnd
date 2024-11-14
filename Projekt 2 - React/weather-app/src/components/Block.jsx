@@ -1,8 +1,20 @@
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import './Block.css';
 import weatherIcons from './WeatherIcons';
 
 const Block = ({ selectedCity }) => {
+  // Pobieramy jednostkę temperature reducer
+  const unit = useSelector((state) => state.unit);
+
+  // Funkcja do konwersji temperatury
+  const convertTemperature = (temp, unit) => {
+    if (unit === 'Fahrenheit') {
+      return (temp * 9/5) + 32;  // Konwersja na Fahrenheit
+    }
+    return temp;  // Zwracamy Celsius, jeśli jednostka to Celsius
+  };
+
   useEffect(() => {
     if (selectedCity) {
       console.log(`Ładowanie danych pogodowych dla miasta: ${selectedCity.name}`);
@@ -18,21 +30,24 @@ const Block = ({ selectedCity }) => {
       <h1 className='cityname'>{selectedCity.name}</h1>
       <img
         className='big-picture'
-        src={weatherIcons[selectedCity.weather] || sun_icon}
+        src={weatherIcons[selectedCity.weather] || weatherIcons.sunny}
         alt='weather icon'
       />
-      <p className='degrees'>{selectedCity.temp}℃</p>
-
+      <p className='degrees'>
+        {convertTemperature(selectedCity.temp, unit)}°{unit === 'Celsius' ? 'C' : 'F'}
+      </p>
       <div className='next-days'>
         {selectedCity.forecast.map((forecastDay, index) => (
           <div className='day' key={index}>
             <p className='little-degrees'>Day: {forecastDay.day}</p>
             <img
               className='little-picture'
-              src={weatherIcons[forecastDay.weather] || sun_icon}
+              src={weatherIcons[forecastDay.weather] || weatherIcons.sunny}
               alt='weather icon'
             />
-            <p className='little-degrees'>Avg: {forecastDay.temp}℃</p>
+            <p className='little-degrees'>
+              Avg: {convertTemperature(forecastDay.temp, unit)}°{unit === 'Celsius' ? 'C' : 'F'}
+            </p>
           </div>
         ))}
       </div>

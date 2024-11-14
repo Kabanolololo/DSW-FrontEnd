@@ -15,7 +15,7 @@ const citiesData = [
     rain: { chance: '30%', amount: '5 mm/m²' },
   },
   {
-    name: 'Warszawa',
+    name: 'Kraków',
     temp: 12,
     weather: 'rain',
     forecast: [
@@ -28,6 +28,51 @@ const citiesData = [
     overcast: '50%',
     wind: { direction: 'E', speed: '12 m/s' },
     rain: { chance: '60%', amount: '10 mm/m²' },
+  },
+  {
+    name: 'Gdańsk',
+    temp: 19,
+    weather: 'sunny',
+    forecast: [
+      { day: 'Mon', temp: 20, weather: 'sunny' },
+      { day: 'Tue', temp: 19, weather: 'sunny' },
+      { day: 'Wed', temp: 18, weather: 'sunny' },
+      { day: 'Thu', temp: 20, weather: 'rain' },
+      { day: 'Fri', temp: 22, weather: 'sunny' },
+    ],
+    overcast: '10%',
+    wind: { direction: 'S', speed: '7 m/s' },
+    rain: { chance: '20%', amount: '2 mm/m²' },
+  },
+  {
+    name: 'Poznań',
+    temp: 8,
+    weather: 'snow',
+    forecast: [
+      { day: 'Mon', temp: 7, weather: 'snow' },
+      { day: 'Tue', temp: 9, weather: 'snow' },
+      { day: 'Wed', temp: 5, weather: 'snow' },
+      { day: 'Thu', temp: 8, weather: 'rain' },
+      { day: 'Fri', temp: 10, weather: 'sunny' },
+    ],
+    overcast: '70%',
+    wind: { direction: 'N', speed: '15 m/s' },
+    rain: { chance: '40%', amount: '8 mm/m²' },
+  },
+  {
+    name: 'Wrocław',
+    temp: 12,
+    weather: 'thunder',
+    forecast: [
+      { day: 'Mon', temp: 13, weather: 'rain' },
+      { day: 'Tue', temp: 14, weather: 'thunder' },
+      { day: 'Wed', temp: 12, weather: 'snow' },
+      { day: 'Thu', temp: 15, weather: 'sunny' },
+      { day: 'Fri', temp: 13, weather: 'thunder' },
+    ],
+    overcast: '90%',
+    wind: { direction: 'SW', speed: '20 m/s' },
+    rain: { chance: '80%', amount: '15 mm/m²' },
   },
 ];
 

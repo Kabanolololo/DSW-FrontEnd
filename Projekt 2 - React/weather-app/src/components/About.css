@@ -21,6 +21,8 @@
     line-height: 1.6;
     color: rgb(60, 60, 60);
     margin-bottom: 20px;
+    text-align: left;
+    text-indent: 5px;
   }
   
   .about-info {

@@ -6,9 +6,8 @@ Funkcje komponentu:
 Lista miast: Wyświetla listę istniejących miast z nazwą, aktualną temperaturą oraz ikoną reprezentującą warunki pogodowe.
 Dodawanie nowego miasta: Zawiera pole tekstowe oraz przycisk, które umożliwiają użytkownikowi wpisanie nazwy nowego miasta i dodanie go do listy z domyślnymi wartościami pogody.
 Komponent Left przekazuje wybrane miasto do głównego komponentu App, co pozwala na wyświetlenie szczegółowego widoku dla danego miasta. W tym celu użyto hooka useState, który przechowuje:
+- listę miast aktualnie wpisany tekst w polu dodawania miasta.
 
-listę miast
-aktualnie wpisany tekst w polu dodawania miasta.
 2. Komponent Block
 Komponent Block odpowiada za wyświetlanie szczegółowych informacji pogodowych dla aktualnie wybranego miasta.
 
@@ -23,7 +22,9 @@ Do wyświetlania prognozy na kolejne dni Block korzysta z reużywalnego komponen
 Komponent Block wykorzystuje hook useEffect do reakcji na zmiany danych wybranego miasta, co umożliwia uaktualnienie widoku przy każdej zmianie.
 
 3. Komponent CityList
+
 Komponent przechowuje dane o miastach
 
 4. Komponent WeatherIcons
+
 Komponent przechowuje dane o ikonach
