@@ -1,7 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';  // Używamy useDispatch i useSelector
-import { setUnit } from '../redux/temperatureActions';  // Poprawny import akcji
+import { useSelector } from 'react-redux';
 import './Left.css';
 import citiesData from './CityList';
 import weatherIcons from './WeatherIcons';
@@ -9,75 +8,55 @@ import weatherIcons from './WeatherIcons';
 // Funkcja pomocnicza do konwersji temperatury
 const convertTemperature = (temp, unit) => {
   if (unit === 'Fahrenheit') {
-    return (temp * 9/5) + 32;  // Konwersja na Fahrenheit
+    return (temp * 9/5) + 32; // Konwersja na Fahrenheit
   }
-  return temp;  // Jeśli jednostka to Celsius, nie zmieniamy temperatury
+  return temp; // Zwracamy wartość w Celsiusach
 };
 
 const Left = ({ setSelectedCity }) => {
-  const [cities, setCities] = useState(citiesData);
-  const [cityName, setCityName] = useState('');
-  const dispatch = useDispatch();  // Hook do wysyłania akcji w Redux
-  const unit = useSelector(state => state.unit);  // Pobieramy jednostkę z Reduxa
+  const [searchTerm, setSearchTerm] = useState(''); // Stan dla wyszukiwanego tekstu
+  const unit = useSelector((state) => state.unit); // Pobieramy jednostkę temperatury z Reduxa
 
-  // Funkcja do dodawania nowego miasta
-  const addCity = useCallback(() => {
-    if (cityName) {
-      const newCity = {
-        name: cityName,
-        temp: 0,
-        weather: 'sunny',
-        forecast: [
-          { day: 'Mon', temp: 15, weather: 'sunny' },
-          { day: 'Tue', temp: 15, weather: 'sunny' },
-          { day: 'Wed', temp: 15, weather: 'sunny' },
-          { day: 'Thu', temp: 15, weather: 'sunny' },
-          { day: 'Fri', temp: 15, weather: 'sunny' },
-        ],
-        overcast: '10%',
-        wind: { direction: 'N', speed: '5 m/s' },
-        rain: { chance: '10%', amount: '2 mm/m²' },
-      };
-      setCities([...cities, newCity]);
-      setCityName('');
-    }
-  }, [cityName, cities]);
-
-  // Funkcja zmieniająca jednostkę temperatury
-  const handleUnitChange = (unit) => {
-    dispatch(setUnit(unit));
-  };
+  // Filtrowanie miast na podstawie wpisanego tekstu
+  const filteredCities = citiesData.filter((city) =>
+    city.name.toLowerCase().includes(searchTerm.toLowerCase()) // Ignorowanie wielkości liter
+  );
 
   return (
-    <div className='left'>
-      <h4>Add new city</h4>
-      <div className="add-city">
+    <div className="left">
+      <h4>Search for a city</h4>
+      <div className="search-container">
         <input
-          type='text'
-          className='search-bar'
-          placeholder='Search for city...'
-          value={cityName}
-          onChange={(e) => setCityName(e.target.value)}
+          type="text"
+          className="search-bar"
+          placeholder="Search for city..."
+          value={searchTerm} // Wiązanie z wartością wpisaną przez użytkownika
+          onChange={(e) => setSearchTerm(e.target.value)} // Aktualizacja stanu na podstawie wpisywanego tekstu
         />
-        <button onClick={addCity}>Add City</button>
+        <div className='buttons'>
+          <button className='button-left'>button1</button>
+          <button className='button-left'>button2</button>
+        </div>
       </div>
 
       <div>
-        {cities.map((city, index) => (
+        {/* Wyświetlanie tylko przefiltrowanych miast */}
+        {filteredCities.map((city, index) => (
           <Link
             to="/city-details"
             key={index}
-            onClick={() => setSelectedCity(city)}
+            onClick={() => setSelectedCity(city)} // Przekazywanie wybranego miasta do rodzica
           >
-            <div className='city'>
+            <div className="city">
               <p>{city.name}</p>
               <img
-                className='little-picture'
+                className="little-picture"
                 src={weatherIcons[city.weather] || weatherIcons.sunny}
-                alt='weather icon'
+                alt="weather icon"
               />
-              {/* Wyświetlamy temperaturę w wybranej jednostce */}
-              <p>Temp: {convertTemperature(city.temp, unit)}°{unit === 'Celsius' ? 'C' : 'F'}</p>
+              <p>
+                Temp: {convertTemperature(city.temp, unit)}°{unit === 'Celsius' ? 'C' : 'F'}
+              </p>
             </div>
           </Link>
         ))}

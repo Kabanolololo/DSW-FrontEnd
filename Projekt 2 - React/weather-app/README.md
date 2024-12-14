@@ -1,30 +1,37 @@
-Opis komponentów
-1. Komponent Left
-Komponent Left jest odpowiedzialny za wyświetlanie listy dostępnych miast oraz za interfejs umożliwiający użytkownikowi dodanie nowego miasta do listy.
+# Opis Komponentów w Projekcie Weather App
 
-Funkcje komponentu:
-Lista miast: Wyświetla listę istniejących miast z nazwą, aktualną temperaturą oraz ikoną reprezentującą warunki pogodowe.
-Dodawanie nowego miasta: Zawiera pole tekstowe oraz przycisk, które umożliwiają użytkownikowi wpisanie nazwy nowego miasta i dodanie go do listy z domyślnymi wartościami pogody.
-Komponent Left przekazuje wybrane miasto do głównego komponentu App, co pozwala na wyświetlenie szczegółowego widoku dla danego miasta. W tym celu użyto hooka useState, który przechowuje:
-- listę miast aktualnie wpisany tekst w polu dodawania miasta.
+### App.jsx
+- Główna aplikacja, która ustawia routingi i przekazuje Redux Store do komponentów.
 
-2. Komponent Block
-Komponent Block odpowiada za wyświetlanie szczegółowych informacji pogodowych dla aktualnie wybranego miasta.
+### Left.jsx
+- Wyświetla listę miast oraz dynamiczne wyszukiwanie miast w czasie rzeczywistym.
+- Umożliwia wybór miasta, które jest następnie przekazywane jako wybrane.
+- Obsługuje wyświetlanie temperatury w jednostkach (Celsius/Fahrenheit).
 
-Funkcje komponentu:
-Aktualne dane pogodowe: Wyświetla nazwę miasta, ikonę pogody, aktualną temperaturę oraz podstawowe informacje o zachmurzeniu, wietrze i opadach.
-Prognoza na kolejne dni: Zawiera podgląd na kilka kolejnych dni, gdzie dla każdego dnia wyświetlane są:
-dzień tygodnia,
-ikona pogody,
-przewidywana temperatura.
-Do wyświetlania prognozy na kolejne dni Block korzysta z reużywalnego komponentu WeatherDay, aby w sposób modułowy renderować prognozę dla każdego dnia.
+### Block.jsx
+- Pokazuje szczegółowe dane pogodowe dla wybranego miasta, takie jak:
+  - Aktualna temperatura.
+  - Prognoza na 5 dni.
+  - Kierunek i prędkość wiatru.
+  - Pokrycie chmur i dane o opadach deszczu.
 
-Komponent Block wykorzystuje hook useEffect do reakcji na zmiany danych wybranego miasta, co umożliwia uaktualnienie widoku przy każdej zmianie.
+### Settings.jsx
+- Sekcja ustawień, w której użytkownik może zmienić jednostkę temperatury na Celsius lub Fahrenheit.
 
-3. Komponent CityList
+### About.jsx
+- Wyświetla informacje o aplikacji, w tym autora projektu oraz krótki opis funkcjonalności.
 
-Komponent przechowuje dane o miastach
+### WeatherIcons.js
+- Mapa ikon pogodowych, która przypisuje odpowiednie obrazy do warunków pogodowych takich jak słońce, deszcz, śnieg itd.
 
-4. Komponent WeatherIcons
+### CityList.js
+- Przechowuje statyczne dane o miastach, ich prognozach pogodowych oraz dodatkowych informacjach.
 
-Komponent przechowuje dane o ikonach
+### temperatureReducer.js
+- Reducer w Reduxie odpowiedzialny za zmianę jednostki temperatury (Celsius/Fahrenheit) na podstawie akcji.
+
+### temperatureActions.js
+- Definicja akcji w Reduxie służących do zmiany jednostki temperatury.
+
+### store.js
+- Główne miejsce konfiguracji Redux Store, które łączy reducery i pozwala na globalne zarządzanie stanem aplikacji.

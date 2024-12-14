@@ -23,9 +23,12 @@
     font-size: 0.9em;
     box-sizing: border-box;
   }
-
-  button {
-    display: block; 
+  .buttons{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .button-left {
+    display: block;
     padding: 8px 16px;
     font-size: 1em;
     background-color: #00796b;
@@ -37,7 +40,7 @@
     transition: color 0.3s ease, background-color 0.3s ease;
   }
   
-  button:hover {
+  .button-left:hover {
     background-color: #004d40;
   }
   .city {
