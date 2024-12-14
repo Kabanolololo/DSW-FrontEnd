@@ -70,4 +70,22 @@
     width: 40px;
     height: 40px;
   }
-  
+
+.favorite-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 5px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.favorite-icon:hover {
+  background-color: #ffeb3b;
+}
+
+.favorite-icon.active {
+  background-color: #ffeb3b;
+}
