@@ -8,7 +8,6 @@ import Settings from './components/Settings';
 import store from './redux/store';
 import './App.css';
 
-
 const App = () => {
   const [selectedCity, setSelectedCity] = useState(null);
 
@@ -21,16 +20,16 @@ const App = () => {
             <Link to="/about">About</Link>
             <Link to="/settings">Settings</Link>
           </nav>
-          <Left setSelectedCity={setSelectedCity} />
-          <Routes>
-            <Route path="/" element={<Left setSelectedCity={setSelectedCity} />} />
-            <Route
-              path="/city-details"
-              element={<Block selectedCity={selectedCity} />}
-            />
-            <Route path="/about" element={<About />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
+          
+          {/* Warunkowe renderowanie Left na podstawie ścieżki */}
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<><Left setSelectedCity={setSelectedCity} /><Block selectedCity={selectedCity} /></>} />
+              <Route path="/city-details" element={<><Left setSelectedCity={setSelectedCity} /><Block selectedCity={selectedCity} /></>} />
+              <Route path="/about" element={<About />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+          </div>
         </div>
       </Router>
     </Provider>

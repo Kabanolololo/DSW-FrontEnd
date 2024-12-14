@@ -4,8 +4,8 @@ import './Block.css';
 import weatherIcons from './WeatherIcons';
 
 const Block = ({ selectedCity }) => {
-  // Pobieramy jednostkę temperature reducer
-  const unit = useSelector((state) => state.unit);
+  // Pobieramy jednostkę z Redux
+  const unit = useSelector((state) => state.temperature.unit);
 
   // Funkcja do konwersji temperatury
   const convertTemperature = (temp, unit) => {
@@ -21,8 +21,9 @@ const Block = ({ selectedCity }) => {
     }
   }, [selectedCity]);
 
-  if (!selectedCity) {
-    return <p className='paragraph'>Please select a city to see the weather.</p>;
+  // Sprawdzamy, czy wybrane miasto jest prawidłowe
+  if (!selectedCity || !selectedCity.name) {
+    return <p className='paragraph'>Please select a city to show more information.</p>;
   }
 
   return (
@@ -39,34 +40,34 @@ const Block = ({ selectedCity }) => {
       <div className='next-days'>
         {selectedCity.forecast.map((forecastDay, index) => (
           <div className='day' key={index}>
-            <p className='little-degrees'>Day: {forecastDay.day}</p>
+            <p className='little-degrees'>Dzień: {forecastDay.day}</p>
             <img
               className='little-picture'
               src={weatherIcons[forecastDay.weather] || weatherIcons.sunny}
               alt='weather icon'
             />
             <p className='little-degrees'>
-              Avg: {convertTemperature(forecastDay.temp, unit)}°{unit === 'Celsius' ? 'C' : 'F'}
+              Średnia: {convertTemperature(forecastDay.temp, unit)}°{unit === 'Celsius' ? 'C' : 'F'}
             </p>
           </div>
         ))}
       </div>
       <div className='more-info'>
         <div className='per-clouds'>
-          <p className='info'>Overcast:</p>
+          <p className='info'>Zachmurzenie:</p>
           <p className='percentage'>{selectedCity.overcast}</p>
         </div>
         <div className='wind'>
-          <p className='text'>Wind:</p>
-          <p>Direction: {selectedCity.wind.direction}</p>
-          <p>Speed: {selectedCity.wind.speed}</p>
+          <p className='text'>Wiatr:</p>
+          <p>Kierunek: {selectedCity.wind.direction}</p>
+          <p>Prędkość: {selectedCity.wind.speed}</p>
         </div>
       </div>
 
       <div className='rain'>
-        <h4>Chance of rain</h4>
-        <p>Percentage: {selectedCity.rain.chance}</p>
-        <p>Amount: {selectedCity.rain.amount}</p>
+        <h4>Szansa na deszcz</h4>
+        <p>Procent: {selectedCity.rain.chance}</p>
+        <p>Ilość: {selectedCity.rain.amount}</p>
       </div>
     </div>
   );

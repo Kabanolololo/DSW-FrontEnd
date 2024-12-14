@@ -6,10 +6,18 @@ import citiesData from './CityList';
 import weatherIcons from './WeatherIcons';
 import star from '../assets/star.svg';
 
+// Funkcja do konwersji temperatury
+const convertTemperature = (temp, unit) => {
+  if (unit === 'Fahrenheit') {
+    return (temp * 9/5) + 32;  // Konwersja na Fahrenheit
+  }
+  return temp;  // Zwracamy Celsius, jeśli jednostka to Celsius
+};
+
 const Left = ({ setSelectedCity }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [view, setView] = useState('all'); // Nowy stan dla widoku
-  const unit = useSelector((state) => state.temperature.unit);
+  const unit = useSelector((state) => state.temperature.unit); // Pobieramy jednostkę temperatury z Redux
   const favorites = useSelector((state) => state.favorites.favorites); // Pobieramy ulubione miasta z Redux
   const dispatch = useDispatch();
 
@@ -47,7 +55,7 @@ const Left = ({ setSelectedCity }) => {
       </div>
 
       <div className="buttons">
-        <button
+        <button 
           className="button-left"
           onClick={() => handleViewChange('all')} // Wyświetl wszystkie miasta
         >
@@ -60,7 +68,12 @@ const Left = ({ setSelectedCity }) => {
           Favorite Cities
         </button>
       </div>
-
+      <div>
+        {/* Wyświetlanie komunikatu, gdy lista ulubionych jest pusta */}
+        {view === 'favorites' && favorites.length === 0 && (
+          <p className="empty-favorites-message">Your favorite cities list is empty.</p>
+        )}
+      </div>
       <div>
         {displayCities.map((city, index) => (
           <div
@@ -75,7 +88,7 @@ const Left = ({ setSelectedCity }) => {
               alt="weather icon"
             />
             <p>
-              Temp: {city.temp}°{unit === 'Celsius' ? 'C' : 'F'}
+              Temp: {convertTemperature(city.temp, unit)}°{unit === 'Celsius' ? 'C' : 'F'}
             </p>
 
             <img
