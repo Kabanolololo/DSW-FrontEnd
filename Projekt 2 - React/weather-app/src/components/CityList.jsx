@@ -74,6 +74,36 @@ const citiesData = [
     wind: { direction: 'SW', speed: '20 m/s' },
     rain: { chance: '80%', amount: '15 mm/m²' },
   },
+  {
+    name: 'Warszawa',
+    temp: 10,
+    weather: 'rain',
+    forecast: [
+      { day: 'Mon', temp: 11, weather: 'rain' },
+      { day: 'Tue', temp: 9, weather: 'thunder' },
+      { day: 'Wed', temp: 8, weather: 'snow' },
+      { day: 'Thu', temp: 10, weather: 'rain' },
+      { day: 'Fri', temp: 12, weather: 'cloudy' },
+    ],
+    overcast: '80%',
+    wind: { direction: 'N', speed: '5 m/s' },
+    rain: { chance: '75%', amount: '10 mm/m²' },
+  },
+  {
+    name: 'Łódź',
+    temp: 14,
+    weather: 'cloudy',
+    forecast: [
+      { day: 'Mon', temp: 15, weather: 'cloudy' },
+      { day: 'Tue', temp: 13, weather: 'sunny' },
+      { day: 'Wed', temp: 14, weather: 'cloudy' },
+      { day: 'Thu', temp: 16, weather: 'rain' },
+      { day: 'Fri', temp: 14, weather: 'cloudy' },
+    ],
+    overcast: '60%',
+    wind: { direction: 'SW', speed: '10 m/s' },
+    rain: { chance: '50%', amount: '6 mm/m²' },
+  },
 ];
 
 export default citiesData;

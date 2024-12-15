@@ -21,6 +21,20 @@ const Left = ({ setSelectedCity }) => {
   const favorites = useSelector((state) => state.favorites.favorites); // Pobieramy ulubione miasta z Redux
   const dispatch = useDispatch();
 
+  // Zapisanie ulubionych miast do localStorage
+  const saveFavoritesToLocalStorage = (favorites) => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  };
+
+  // Załadowanie ulubionych miast z localStorage
+  const loadFavoritesFromLocalStorage = () => {
+    const savedFavorites = localStorage.getItem('favorites');
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  };
+
+  // Inicjalizacja ulubionych miast z localStorage
+  const initialFavorites = loadFavoritesFromLocalStorage();
+
   const filteredCities = citiesData.filter((city) =>
     city.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -28,9 +42,13 @@ const Left = ({ setSelectedCity }) => {
   const handleFavoriteToggle = (city) => {
     // Jeśli miasto jest już ulubione, to usuwamy je
     if (favorites.some(fav => fav.name === city.name)) {
+      const updatedFavorites = favorites.filter(fav => fav.name !== city.name);
       dispatch(removeFavorite(city.name));
+      saveFavoritesToLocalStorage(updatedFavorites);  // Zapisanie zmienionej listy ulubionych miast w localStorage
     } else {
       dispatch(addFavorite(city));
+      const updatedFavorites = [...favorites, city];
+      saveFavoritesToLocalStorage(updatedFavorites);  // Zapisanie zmienionej listy ulubionych miast w localStorage
     }
   };
 

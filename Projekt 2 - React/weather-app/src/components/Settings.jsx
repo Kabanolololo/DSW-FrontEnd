@@ -1,10 +1,11 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setUnit } from '../redux/temperatureActions';
 import './Settings.css';
 
 const UnitSelector = () => {
-  const dispatch = useDispatch();  // Hook do wysyłania akcji w Redux
+  const dispatch = useDispatch();
+  const unit = useSelector((state) => state.temperature.unit);  // Pobieramy jednostkę z Redux
 
   // Funkcja zmieniająca jednostkę temperatury
   const handleUnitChange = (unit) => {
@@ -20,8 +21,18 @@ const UnitSelector = () => {
       </p>
       <h3>Change Temperature Unit</h3>
       <div className="unit-selector">
-        <button onClick={() => handleUnitChange('Celsius')} className="unit-button">Celsius</button>
-        <button onClick={() => handleUnitChange('Fahrenheit')} className="unit-button">Fahrenheit</button>
+        <button
+          onClick={() => handleUnitChange('Celsius')}
+          className={`unit-button ${unit === 'Celsius' ? 'active' : ''}`}  // Zaznaczamy wybraną jednostkę
+        >
+          Celsius
+        </button>
+        <button
+          onClick={() => handleUnitChange('Fahrenheit')}
+          className={`unit-button ${unit === 'Fahrenheit' ? 'active' : ''}`}  // Zaznaczamy wybraną jednostkę
+        >
+          Fahrenheit
+        </button>
       </div>
     </div>
   );
