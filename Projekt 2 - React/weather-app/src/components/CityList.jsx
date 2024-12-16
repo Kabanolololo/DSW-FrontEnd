@@ -77,7 +77,7 @@ const citiesData = [
   {
     name: 'Warszawa',
     temp: 10,
-    weather: 'rain',
+    weather: 'thunder',
     forecast: [
       { day: 'Mon', temp: 11, weather: 'rain' },
       { day: 'Tue', temp: 9, weather: 'thunder' },

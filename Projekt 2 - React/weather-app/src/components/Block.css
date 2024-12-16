@@ -2,13 +2,14 @@
     background-color: #e0f7fa;
     border-radius: 12px;
     padding: 20px;
-    width: 35%;
+    width: 50%;
     margin: auto;
     font-family: Arial, sans-serif;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 100px;
 }
-.paragraph{
+
+.paragraph {
     margin-top: 50px;
 }
 
@@ -19,36 +20,61 @@
     text-align: center;
     margin-bottom: 10px;
 }
-  
+
 .big-picture {
     display: block;
     width: 80px;
     height: 80px;
     margin: 0 auto 0px;
 }
-  
+
 .degrees {
     font-size: 2em;
     color: #000000;
     text-align: center;
     margin-bottom: 20px;
 }
-  
+
 .next-days {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     margin: 10px 0;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
 .day {
     text-align: center;
     width: 15%;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
 }
 
-.day:hover{
+.day:hover {
     background-color: #c6dcdf;
-    cursor: auto;
+    cursor: pointer; 
+}
+
+.day-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.day-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #00796b;
+}
+
+.date {
+    font-size: 0.9em;
+    color: #616161;
 }
 
 .little-picture {
@@ -61,9 +87,9 @@
 .little-degrees {
     font-size: 0.9em;
     color: #616161;
-    margin-top: 5px; 
+    margin-top: 5px;
 }
-  
+
 .more-info {
     background-color: #ffffff;
     border-radius: 8px;
@@ -75,27 +101,28 @@
     align-items: center;
     justify-content: space-around;
 }
-  
+
 .per-clouds p {
     color: #00796b;
     font-size: 0.9em;
     margin: 5px 0;
 }
-.info{
+
+.info {
     font-weight: bold;
 }
 
-.percentage{
+.percentage {
     text-align: center;
 }
-  
+
 .wind p {
     color: #00796b;
     font-size: 0.9em;
     margin: 2px 0;
 }
 
-.text{
+.text {
     text-align: center;
     font-weight: bold;
 }
@@ -108,12 +135,12 @@
     text-align: center;
     color: #00796b;
 }
-  
+
 .rain h4 {
     font-size: 1em;
     margin-bottom: 5px;
 }
-  
+
 .rain p {
     font-size: 0.9em;
 }
